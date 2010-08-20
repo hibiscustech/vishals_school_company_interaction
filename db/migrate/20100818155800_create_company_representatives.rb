@@ -11,7 +11,7 @@ class CreateCompanyRepresentatives < ActiveRecord::Migration
                 REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
                 CONSTRAINT `company_representatives_ibfk_2` FOREIGN KEY (`company_id`)
                 REFERENCES `companies` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-              ) ENGINE=InnoDB DEFAULT CHARSET=utf8 }
+              ) ENGINE=InnoDB }
   end
 
   def self.down

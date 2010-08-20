@@ -11,7 +11,7 @@ class CreateSchoolRepresentatives < ActiveRecord::Migration
                 REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
                 CONSTRAINT `school_representatives_ibfk_2` FOREIGN KEY (`school_id`)
                 REFERENCES `schools` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-              ) ENGINE=InnoDB DEFAULT CHARSET=utf8 }
+              ) ENGINE=InnoDB }
   end
 
   def self.down

@@ -10,7 +10,7 @@ class CreateUsers < ActiveRecord::Migration
                 `salt` varchar(50) DEFAULT NULL,
                 `crypted_password` varchar(255) DEFAULT NULL,
                  PRIMARY KEY (`id`)
-              ) ENGINE=InnoDB AUTO_INCREMENT=183 DEFAULT CHARSET=utf8 }
+              ) ENGINE=InnoDB }
   end
 
   def self.down

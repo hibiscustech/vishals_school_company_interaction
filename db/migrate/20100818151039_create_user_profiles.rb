@@ -17,7 +17,7 @@ class CreateUserProfiles < ActiveRecord::Migration
                 PRIMARY KEY (`id`),
                 KEY `user_id` (`user_id`),
                 CONSTRAINT `user_profiles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-              ) ENGINE=InnoDB AUTO_INCREMENT=179 DEFAULT CHARSET=utf8 }
+              ) ENGINE=InnoDB }
   end
 
   def self.down

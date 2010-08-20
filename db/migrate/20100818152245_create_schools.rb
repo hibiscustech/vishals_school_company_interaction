@@ -13,7 +13,7 @@ class CreateSchools < ActiveRecord::Migration
                 `phone` varchar(255) default NULL,
                 `detail` varchar(255) default NULL,
                 PRIMARY KEY  (`id`)
-              ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1}
+              ) ENGINE=InnoDB }
   end
 
   def self.down

@@ -1,5 +1,7 @@
 class School < ActiveRecord::Base
-   has_many :school_representatives, :users
+#   has_many :school_representatives, :users
 
-   validates_presence_of :school_name, :city, :state
+  has_one :school_representative
+
+  validates_presence_of :school_name, :city, :state
 end

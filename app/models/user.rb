@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :school_representatives, :company_representatives
-  belongs_to :school, :company
+  has_one :user_profile, :school_representative, :company_representative
+
+
 
 end

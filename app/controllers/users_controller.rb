@@ -11,7 +11,8 @@ class UsersController < ApplicationController
   def create
     logout_keeping_session!
     @user = User.new(params[:user])
-
+    @user.time_created=Time.now.to_i
+    @user.account_type="admin"
     success = @user && @user.save
 
     if success && @user.errors.empty?

@@ -1,0 +1,63 @@
+<p>
+  <b>First name:</b>
+  <%=h @user_profile.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%=h @user_profile.last_name %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @user_profile.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%=h @user_profile.state %>
+</p>
+
+<p>
+  <b>Address1:</b>
+  <%=h @user_profile.address1 %>
+</p>
+
+<p>
+  <b>Address2:</b>
+  <%=h @user_profile.address2 %>
+</p>
+
+<p>
+  <b>Zipcode:</b>
+  <%=h @user_profile.zipcode %>
+</p>
+
+<p>
+  <b>Contact number:</b>
+  <%=h @user_profile.contact_number %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @user_profile.user_id %>
+</p>
+
+<p>
+  <b>Dob:</b>
+  <%=h @user_profile.dob %>
+</p>
+
+<p>
+  <b>Email address:</b>
+  <%=h @user_profile.email_address %>
+</p>
+
+<p>
+  <b>Gender:</b>
+  <%=h @user_profile.gender %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_profile_path(@user_profile) %> |
+<%= link_to 'Back', user_profiles_path %>

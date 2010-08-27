@@ -1,0 +1,47 @@
+<h1>New school</h1>
+
+<% form_for(@school) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :school_name %><br />
+    <%= f.text_field :school_name %>
+  </p>
+  <p>
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </p>
+  <p>
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </p>
+  <p>
+    <%= f.label :address1 %><br />
+    <%= f.text_field :address1 %>
+  </p>
+  <p>
+    <%= f.label :address2 %><br />
+    <%= f.text_field :address2 %>
+  </p>
+  <p>
+    <%= f.label :zipcode %><br />
+    <%= f.text_field :zipcode %>
+  </p>
+  <p>
+    <%= f.label :website %><br />
+    <%= f.text_field :website %>
+  </p>
+  <p>
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </p>
+  <p>
+    <%= f.label :detail %><br />
+    <%= f.text_field :detail %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', schools_path %>

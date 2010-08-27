@@ -1,0 +1,7 @@
+<%if current_user%>
+<%=link_to(current_user.login,'/profile')%>
+<%else%>
+<%=link_to('/profile','logout')%>
+<%end%>
+
+<%=yield%>

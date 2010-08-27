@@ -1,0 +1,60 @@
+<h1>New user_profile</h1>
+
+<% form_for(@user_profile) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </p>
+  <p>
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </p>
+  <p>
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </p>
+  <p>
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </p>
+  <p>
+    <%= f.label :address1 %><br />
+    <%= f.text_field :address1 %>
+  </p>
+  <p>
+    <%= f.label :address2 %><br />
+    <%= f.text_field :address2 %>
+  </p>
+  <p>
+    <%= f.label :zipcode %><br />
+    <%= f.text_field :zipcode %>
+  </p>
+  <p>
+    <%= f.label :contact_number %><br />
+    <%= f.text_field :contact_number %>
+  </p>
+  <p>
+
+    <%= f.hidden_field :user_id,:value =>current_user.id %>
+  </p>
+  <p>
+    <%= f.label :dob %><br />
+    <%= f.text_field :dob %>
+  </p>
+  <p>
+    <%= f.label :email_address %><br />
+    <%= f.text_field :email_address %>
+  </p>
+  <p>
+    <%= f.label :gender %><br />
+    Male<%=radio_button('user_profile','gender','m') %>
+    Female<%=radio_button('user_profile','gender','f') %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', user_profiles_path %>

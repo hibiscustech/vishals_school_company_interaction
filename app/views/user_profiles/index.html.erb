@@ -1,0 +1,42 @@
+<h1>Listing user_profiles</h1>
+
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Address1</th>
+    <th>Address2</th>
+    <th>Zipcode</th>
+    <th>Contact number</th>
+    <th>User</th>
+    <th>Dob</th>
+    <th>Email address</th>
+    <th>Gender</th>
+  </tr>
+
+<% @user_profiles.each do |user_profile| %>
+  <tr>
+    <td><%=h user_profile.first_name %></td>
+    <td><%=h user_profile.last_name %></td>
+    <td><%=h user_profile.city %></td>
+    <td><%=h user_profile.state %></td>
+    <td><%=h user_profile.address1 %></td>
+    <td><%=h user_profile.address2 %></td>
+    <td><%=h user_profile.zipcode %></td>
+    <td><%=h user_profile.contact_number %></td>
+    <td><%=h user_profile.user_id %></td>
+    <td><%=h user_profile.dob %></td>
+    <td><%=h user_profile.email_address %></td>
+    <td><%=h user_profile.gender %></td>
+    <td><%= link_to 'Show', user_profile %></td>
+    <td><%= link_to 'Edit', edit_user_profile_path(user_profile) %></td>
+    <td><%= link_to 'Destroy', user_profile, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New user_profile', new_user_profile_path %>

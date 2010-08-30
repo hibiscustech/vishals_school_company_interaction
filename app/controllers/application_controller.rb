@@ -5,6 +5,14 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   include AuthenticatedSystem
+  before_filter:check_profile?
+
+
+  def check_profile?
+   if current_user and current_user.user_profile.nil?
+    redirect_to "/user_profiles/new"
+   end
+  end
 
 
   # Scrub sensitive parameters from your log

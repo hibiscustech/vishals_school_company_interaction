@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100818155800) do
+ActiveRecord::Schema.define(:version => 20100830074746) do
 
   create_table "companies", :force => true do |t|
     t.string  "company_name", :limit => 100
@@ -78,13 +78,15 @@ ActiveRecord::Schema.define(:version => 20100818155800) do
   add_index "user_profiles", ["user_id"], :name => "user_id"
 
   create_table "users", :force => true do |t|
-    t.integer "time_created",                                     :null => false
-    t.string  "deleted",          :limit => 0,  :default => "No", :null => false
-    t.string  "login",            :limit => 50
-    t.string  "email",            :limit => 50
-    t.string  "account_type",     :limit => 50,                   :null => false
-    t.string  "salt",             :limit => 50
-    t.string  "crypted_password"
+    t.integer  "time_created",                                              :null => false
+    t.string   "deleted",                   :limit => 0,  :default => "No", :null => false
+    t.string   "login",                     :limit => 50
+    t.string   "email",                     :limit => 50
+    t.string   "account_type",              :limit => 50,                   :null => false
+    t.string   "salt",                      :limit => 50
+    t.string   "crypted_password"
+    t.string   "remember_token",            :limit => 40
+    t.datetime "remember_token_expires_at"
   end
 
 end

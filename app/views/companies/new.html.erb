@@ -40,8 +40,7 @@
     <%= f.text_field :detail %>
   </p>
   <p>
-    <%= f.label :industry_id %><br />
-    <%= f.text_field :industry_id %>
+    <%=select("company", "industry_id", Industry.all.collect {|p| [ p.name, p.id ] }, {:prompt => 'Select Industry'})%>
   </p>
   <p>
     <%= f.submit 'Create' %>

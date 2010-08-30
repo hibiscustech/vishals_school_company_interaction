@@ -1,6 +1,7 @@
 class UserProfilesController < ApplicationController
   # GET /user_profiles
   # GET /user_profiles.xml
+  skip_before_filter :check_profile?
   def index
     @user_profiles = UserProfile.all
 
@@ -34,7 +35,7 @@ class UserProfilesController < ApplicationController
 
   # GET /user_profiles/1/edit
   def edit
-    @user_profile = UserProfile.find(params[:id])
+    @user_profile = begin UserProfile.find(params[:id]) rescue UserProfile.find_by_user_id(params[:id])end
   end
 
   # POST /user_profiles

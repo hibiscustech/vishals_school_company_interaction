@@ -1,7 +1,10 @@
 <%if current_user%>
-<%=link_to(current_user.login,'/profile')%>
+<%=link_to(current_user.login,"/user_profiles/#{current_user.id}/edit")%>|<%=link_to('Log Out','logout')%>
+<%if is_a_admin?%>
+|<%=link_to "Manage Users",'/admin/users'%> 
+<%end%>
 <%else%>
-<%=link_to('/profile','logout')%>
+<%=link_to('Login','/login')%>
 <%end%>
 
 <%=yield%>

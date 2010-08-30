@@ -36,8 +36,7 @@
     <%= f.text_field :contact_number %>
   </p>
   <p>
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
+    <%= f.hidden_field :user_id %>
   </p>
   <p>
     <%= f.label :dob %><br />
@@ -47,10 +46,12 @@
     <%= f.label :email_address %><br />
     <%= f.text_field :email_address %>
   </p>
-  <p>
+<p>
     <%= f.label :gender %><br />
-    <%= f.text_field :gender %>
+    Male<%=radio_button('user_profile','gender','m') %>
+    Female<%=radio_button('user_profile','gender','f') %>
   </p>
+
   <p>
     <%= f.submit 'Update' %>
   </p>

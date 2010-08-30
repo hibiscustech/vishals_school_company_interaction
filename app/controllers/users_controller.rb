@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
   include AuthenticatedSystem
+  skip_before_filter :check_profile?,:excepts=>'new'
   
   def index
     @user = User.all
@@ -8,6 +9,11 @@ class UsersController < ApplicationController
   # render new.rhtml
   def new
     @user = User.new
+    if params[:t]=="emp"
+     @companies=Company.find(:all)
+    elsif params[:t]=="rep"
+     @schools=School.find(:all)
+    end
   end
  
   def create
@@ -15,14 +21,32 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.time_created=Time.now.to_i
     @user.account_type="admin"
+    if params[:employer] and params[:employer][:id]
+      @companies=Company.find(:all)
+      @cr=CompanyRepresentative.new(:company_id,params[:employer][:id])
+    end
+    if params[:school] and params[:school][:id]
+      @schools=School.find(:all)
+      @sr=SchoolRepresentative.new()
+    end
     success = @user && @user.save
+   
 
     if success && @user.errors.empty?
+      if !@sr.nil?
+        @sr.user_id=@user.id
+        @sr.school_id=params[:school][:id]
+        @sr.save
+      end
+      if !@cr.nil?
+        @cr.user_id=@user.id
+        @cr.save
+      end
       redirect_back_or_default('/')
       flash[:notice] = "Thanks for signing up!  We're sending you your Username and Password"
     else
       flash[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact an admin (link is above)."
-      render :action => 'new'
+       render :action => 'new'
     end
   end
 
@@ -41,6 +65,11 @@ class UsersController < ApplicationController
       flash[:error]  = "We couldn't find a user with that activation code -- check your email? Or maybe you've already activated -- try signing in."
       redirect_back_or_default('/')
     end
+  end
+  def logout
+  reset_session
+  redirect_to '/'
+  flash[:message]='You are logged out'
   end
 
 end
